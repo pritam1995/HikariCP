@@ -1,7 +1,6 @@
 package com.fresco.hikaricp.repo;
 
 import com.fresco.hikaricp.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -11,8 +10,11 @@ import java.util.List;
 @Repository
 public class CustomerRepository {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public CustomerRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     // Find all customers
     public List<Customer> findAll() {
