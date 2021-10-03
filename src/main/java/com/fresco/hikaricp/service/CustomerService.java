@@ -2,6 +2,7 @@ package com.fresco.hikaricp.service;
 
 import com.fresco.hikaricp.model.Customer;
 import com.fresco.hikaricp.repo.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
+    @Autowired
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
